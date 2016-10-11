@@ -1,5 +1,5 @@
 # Assumes switch is connected to GND - so uses PULL UP
-
+#!/usr/bin/python
 
 import time
 import RPi.GPIO as GPIO
@@ -7,16 +7,18 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-play_pause = 27
-stop = 22
-prev_track = 18
-next_track = 23
-stn_1 = 13
-stn_2 = 19
-stn_3 = 26
+#Define GPIO Pins that have buttons
+play_pause = 27     #Play/pause mpc toggle
+stop = 22           #mpc stop
+prev_track = 18     #mpc prev
+next_track = 23     #mpc next
+stn_1 = 13          #radio station from playlist
+stn_2 = 19          #radio station from playlist
+stn_3 = 26          #radio station from playlist
 
-power_off = 21
+power_off = 21      # sudo halt now
 
+#Configure PULL Up and pin connections
 GPIO.setup(play_pause, GPIO.IN, GPIO.PUD_UP)
 GPIO.setup(stop, GPIO.IN, GPIO.PUD_UP)
 GPIO.setup(prev_track, GPIO.IN, GPIO.PUD_UP)
@@ -26,6 +28,7 @@ GPIO.setup(stn_2, GPIO.IN, GPIO.PUD_UP)
 GPIO.setup(stn_3, GPIO.IN, GPIO.PUD_UP)
 GPIO.setup(power_off, GPIO.IN, GPIO.PUD_UP)
 
+#Begin loop to wait for button press
 while True:
     if GPIO.input(play_pause) == True:
         print ("Play/Pause")
