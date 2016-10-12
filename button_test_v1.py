@@ -14,6 +14,7 @@ while True:
   if button_state == GPIO.HIGH:
     print ("HIGH")
   else:
-    print ("LOW")
+    #print ("LOW")
+    pass
 
     time.sleep(0.5)

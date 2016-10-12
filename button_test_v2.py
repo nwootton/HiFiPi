@@ -47,6 +47,7 @@ while True:
     elif GPIO.input(power_off) == True:
         print ("Shutdown")
     else:
-        print ("Nothing")
+        #print ("Nothing")
+        pass
 
     time.sleep(0.5)
