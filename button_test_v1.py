@@ -5,7 +5,7 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-button = 4
+button = 27
 
 GPIO.setup(pin, GPIO.IN, GPIO.PUD_UP)
 
