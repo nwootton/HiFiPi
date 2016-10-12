@@ -12,4 +12,10 @@ The even numbered files (v2,v4) then take the simple example from the odd number
 
 ## Schematic ##
 
-[Simple schematic](./images/HiFiPi_bb.jpg)
+[Simple schematic](./images/HiFiPi_bb.jpg) here.
+
+*Update*: This was my original schematic that uses GPIO_Pin 17 for 'play' & GPIO_Pin 27 for 'pause'. GPIO_Pin 17 is already taken by the IR controller on the x400 board. However you can use 'toggle' with mpc, so GPIO_Pin 27 has been used as a play/pause control and GPIO_Pin 17 has been ignored.
+
+```bash
+mpc toggle
+```
