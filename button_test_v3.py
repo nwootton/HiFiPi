@@ -1,3 +1,5 @@
+# Assumes switch is connected to GND - so uses PULL UP
+#!/usr/bin/python
 
 import time
 import RPi.GPIO as GPIO
