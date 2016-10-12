@@ -9,3 +9,7 @@ This is more of an experiment than production quality code. I'm trying to figure
 At time of writing this README, the odd numbered files (v1,v3 etc ) contain code designed to work with a single momentary switch attached to GPIO pin 27 (Board pin number 13). These are generally extracts and/or snippets that are used to evaluate different methods of interacting with the GPIO.
 
 The even numbered files (v2,v4) then take the simple example from the odd numbered files and expand it to handle the complete set of switches I want in the project.
+
+## Schematic ##
+
+[Simple schematic](./images/HiFiPi_bb.jpg)
