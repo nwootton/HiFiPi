@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # Assumes switch is connected to GND - so uses PULL UP
 
+import os
 import subprocess
 import time
 import RPi.GPIO as GPIO
@@ -42,6 +43,7 @@ while True:
         subprocess.call(['mpc', 'prev' ])
     elif GPIO.input(next_track) == GPIO.LOW:
         print ("Next")
+        subprocess.call(['mpc', 'next' ])
     elif GPIO.input(stn_1) == GPIO.LOW:
         print ("Station 1")
     elif GPIO.input(stn_2) == GPIO.LOW:
@@ -50,8 +52,9 @@ while True:
         print ("Station 3")
     elif GPIO.input(power_off) == GPIO.LOW:
         print ("Shutdown")
+        os.system("sudo shutdown -h now") # Send shutdown command to os
     else:
         #print ("Nothing")
         pass
 
-    time.sleep(0.5)
+    time.sleep(0.25)
