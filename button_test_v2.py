@@ -31,7 +31,7 @@ GPIO.setup(power_off, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 #Begin loop to wait for button press
 while True:
-    if GPIO.input(button) == GPIO.HIGH:
+    if GPIO.input(play_pause) == GPIO.HIGH:
         print ("Play/Pause")
         subprocess.call(['mpc', 'toggle' ])
     elif GPIO.input(stop) == GPIO.HIGH:
