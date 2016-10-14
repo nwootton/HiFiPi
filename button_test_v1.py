@@ -1,6 +1,7 @@
+#!/usr/bin/env python
 # Assumes switch is connected to GND - so uses PULL UP
-#!/usr/bin/python
 
+import subprocess
 import time
 import RPi.GPIO as GPIO
 
@@ -9,14 +10,13 @@ GPIO.setwarnings(False)
 
 button = 27
 
-GPIO.setup(pin, GPIO.IN, GPIO.PUD_UP)
+GPIO.setup(button, GPIO.IN, GPIO.PUD_UP)
 
 while True:
   button_state = GPIO.input(button)
   if button_state == GPIO.HIGH:
-    print ("HIGH")
-  else:
-    #print ("LOW")
     pass
-
-    time.sleep(0.5)
+  else:
+    print ("Acting")
+    subprocess.call(['mpc', 'toggle' ])
+  time.sleep(0.5)
