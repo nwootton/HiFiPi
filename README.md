@@ -2,7 +2,7 @@
 
 So not the most original name I know, but it's not the most original project either.
 
-This is a collection of Python scripts that are used to control some simple buttons attached to the GPIO connectors on my RPi2 board.
+This is a collection of Python scripts that are used to control some simple buttons attached to the GPIO connectors on my RPi2 board running Volumio music player.
 
 This is more of an experiment than production quality code. I'm trying to figure things out as well as get something that will work for the physical build.
 

@@ -13,10 +13,10 @@ stop = 22           #mpc stop
 prev_track = 18     #mpc prev
 next_track = 23     #mpc next
 stn_1 = 13          #radio station from playlist
-stn_2 = 19          #radio station from playlist
+stn_2 = 12          #radio station from playlist
 stn_3 = 26          #radio station from playlist
 
-power_off = 21      # sudo halt now
+power_off = 20      # sudo halt now
 
 #Configure PULL Up and pin connections
 GPIO.setup(play_pause, GPIO.IN, pull_up_down=GPIO.PUD_UP)
