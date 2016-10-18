@@ -62,3 +62,10 @@ GPIO.add_event_callback(stn_1, stn1)
 GPIO.add_event_callback(stn_2, stn2)
 GPIO.add_event_callback(stn_3, stn3)
 GPIO.add_event_callback(power_off, quit)
+
+# Add our function to execute when the button pressed event happens
+GPIO.add_event_detect(18, GPIO.FALLING, callback = play_pause_toggle, bouncetime = 2000)
+
+# Now wait!
+while 1:
+    time.sleep(0.5)

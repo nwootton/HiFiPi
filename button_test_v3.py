@@ -22,6 +22,7 @@ GPIO.setup(play_pause, GPIO.IN, GPIO.PUD_UP)
 
 # Our function on what to do when the button is pressed
 def Shutdown(channel):
+    print ("Shutting down")
     os.system("sudo shutdown -h now")
 
 # Define callbacks for event detection
