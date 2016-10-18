@@ -19,14 +19,14 @@ stn_3 = 26          #radio station from playlist
 power_off = 20      # sudo halt now
 
 #Configure PULL Up and pin connections
-GPIO.setup(play_pause, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(stop, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(prev_track, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(next_track, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(stn_1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(stn_2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(stn_3, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(power_off, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(play_pause, GPIO.IN, GPIO.PUD_UP)
+GPIO.setup(stop, GPIO.IN, GPIO.PUD_UP)
+GPIO.setup(prev_track, GPIO.IN, GPIO.PUD_UP)
+GPIO.setup(next_track, GPIO.IN, GPIO.PUD_UP)
+GPIO.setup(stn_1, GPIO.IN, GPIO.PUD_UP)
+GPIO.setup(stn_2, GPIO.IN, GPIO.PUD_UP)
+GPIO.setup(stn_3, GPIO.IN, GPIO.PUD_UP)
+GPIO.setup(power_off, GPIO.IN, GPIO.PUD_UP)
 
 #Define callbacks for event detection
 def play_pause_toggle(channel):
