@@ -1,6 +1,9 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 # Assumes switch is connected to GND - so uses PULL UP
 
+import os
+import subprocess
 import time
 import RPi.GPIO as GPIO
 
@@ -31,6 +34,7 @@ GPIO.setup(power_off, GPIO.IN, GPIO.PUD_UP)
 #Define callbacks for event detection
 def play_pause_toggle(channel):
     print ("Play/Pause")
+    #subprocess.call(['mpc', 'toggle' ])
 
 def stop_play(channel):
     print ("Stop")
@@ -52,19 +56,17 @@ def stn3(channel):
 
 def quit(channel):
     print ("Shutdown")
-
-
-GPIO.add_event_callback(play_pause, play_pause_toggle)
-GPIO.add_event_callback(stop, stop_play)
-GPIO.add_event_callback(prev_track, prv)
-GPIO.add_event_callback(next_track, nxt)
-GPIO.add_event_callback(stn_1, stn1)
-GPIO.add_event_callback(stn_2, stn2)
-GPIO.add_event_callback(stn_3, stn3)
-GPIO.add_event_callback(power_off, quit)
+    #os.system("sudo shutdown -h now")
 
 # Add our function to execute when the button pressed event happens
-GPIO.add_event_detect(18, GPIO.FALLING, callback = play_pause_toggle, bouncetime = 2000)
+GPIO.add_event_detect(play_pause, GPIO.FALLING, callback = play_pause_toggle, bouncetime = 2000)
+GPIO.add_event_detect(stop,  GPIO.FALLING, callback = stop_play, bouncetime = 2000)
+GPIO.add_event_detect(prev_track,  GPIO.FALLING, callback = prv, bouncetime = 2000)
+GPIO.add_event_detect(next_track,  GPIO.FALLING, callback = nxt, bouncetime = 2000)
+GPIO.add_event_detect(stn_1,  GPIO.FALLING, callback = stn1, bouncetime = 2000)
+GPIO.add_event_detect(stn_2,  GPIO.FALLING, callback = stn2, bouncetime = 2000)
+GPIO.add_event_detect(stn_3,  GPIO.FALLING, callback = stn3, bouncetime = 2000)
+GPIO.add_event_detect(power_off,  GPIO.FALLING, callback = quit, bouncetime = 2000)
 
 # Now wait!
 while 1:

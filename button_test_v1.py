@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 # Assumes switch is connected to GND - so uses PULL UP
 
 import subprocess

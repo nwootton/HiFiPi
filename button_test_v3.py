@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 # Assumes switch is connected to GND - so uses PULL UP
 import RPi.GPIO as GPIO
 import time
@@ -19,6 +20,7 @@ power_off = 20      # sudo halt now
 # Setup the Pin with Internal pullups enabled and PIN in reading mode.
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(play_pause, GPIO.IN, GPIO.PUD_UP)
+GPIO.setup(power_off, GPIO.IN, GPIO.PUD_UP)
 
 # Our function on what to do when the button is pressed
 def Shutdown(channel):
@@ -31,8 +33,11 @@ def play_pause_toggle(channel):
     subprocess.call(['mpc', 'toggle' ])
 
 # Add our function to execute when the button pressed event happens
-GPIO.add_event_detect(play_pause, GPIO.FALLING, callback = play_pause_toggle, bouncetime = 2000)
-#GPIO.add_event_detect(play_pause, GPIO.RISING, callback = play_pause_toggle, bouncetime = 2000)
+#GPIO.add_event_detect(play_pause, GPIO.FALLING, callback = play_pause_toggle, bouncetime = 2000)
+#GPIO.add_event_detect(power_off, GPIO.FALLING, callback = Shutdown, bouncetime = 2000)
+
+GPIO.add_event_detect(play_pause, GPIO.RISING, callback = play_pause_toggle, bouncetime = 2000)
+GPIO.add_event_detect(power_off, GPIO.RISING, callback = Shutdown, bouncetime = 2000)
 
 # Now wait!
 while 1:
