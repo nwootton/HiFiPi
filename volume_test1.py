@@ -39,7 +39,7 @@ try:
             else:
                 volume -= 1
             print volume
-            #changeVol(volume)
+            changeVol(volume)
         clkLastState = clkState
         sleep(0.01)
 finally:
