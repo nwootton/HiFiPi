@@ -15,15 +15,15 @@ stn_3 = 26          #radio station from playlist
 
 power_off = 20      # sudo halt now
 
-clk = 5            #volume dial clk
-dt = 6             #volume dial dt
+clik = 5            #volume dial clik
+dot = 6             #volume dial dot
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(clik, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(dot, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 volume = 0
-clkLastState = GPIO.input(clk)
+clikLastState = GPIO.input(clik)
 
 def changeVol(newVolume):
     print ("New volume is " + newVolume)
@@ -31,16 +31,16 @@ def changeVol(newVolume):
 try:
 
     while True:
-        clkState = GPIO.input(clk)
-        dtState = GPIO.input(dt)
-        if clkState != clkLastState:
-            if dtState != clkState:
+        clikState = GPIO.input(clik)
+        dotState = GPIO.input(dot)
+        if clikState != clikLastState:
+            if dotState != clikState:
                 volume += 1
             else:
                 volume -= 1
             print volume
             changeVol(volume)
-        clkLastState = clkState
+        clikLastState = clikState
         sleep(0.01)
 finally:
         GPIO.cleanup()
