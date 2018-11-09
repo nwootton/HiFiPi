@@ -32,19 +32,19 @@ def mpdConnect(client, con_id):
     return True
 
 def play_pause_toggle(channel):
-    print ("Play/Pause")
+    print("Play/Pause")
     client.pause()
 
 def quit(channel):
-    print ("Shutdown")
+    print("Shutdown")
     os.system("sudo shutdown -h now")
 
 ## MPD object instance
 client = MPDClient()
 if mpdConnect(client, CON_ID):
     print('Got connected!')
-    status=client.status()
-    print 'status = ', status
+    status = client.status()
+    print('status = ', status)
 else:
     print('fail to connect MPD server.')
     sys.exit(1)
@@ -55,5 +55,5 @@ GPIO.setup(play_pause, GPIO.IN, GPIO.PUD_UP)
 GPIO.setup(power_off, GPIO.IN, GPIO.PUD_UP)
 
 # Add our function to execute when the button pressed event happens
-GPIO.add_event_detect(play_pause, GPIO.FALLING, callback = play_pause_toggle, bouncetime = 2000)
-GPIO.add_event_detect(power_off,  GPIO.FALLING, callback = quit, bouncetime = 2000)
+GPIO.add_event_detect(play_pause, GPIO.FALLING, callback=play_pause_toggle, bouncetime=2000)
+GPIO.add_event_detect(power_off, GPIO.FALLING, callback=quit, bouncetime=2000)
